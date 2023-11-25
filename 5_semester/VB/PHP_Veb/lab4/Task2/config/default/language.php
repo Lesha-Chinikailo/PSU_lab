@@ -1,0 +1,2 @@
+<?php
+$language = 'Language configuration';

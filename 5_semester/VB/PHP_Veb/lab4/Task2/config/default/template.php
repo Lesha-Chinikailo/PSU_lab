@@ -1,0 +1,2 @@
+<?php
+$template = 'Template configuration';
