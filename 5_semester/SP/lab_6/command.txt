@@ -1,0 +1,26 @@
+это для установки
+
+wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+
+sudo dpkg -i packages-microsoft-prod.deb
+
+ sudo apt-get update
+
+sudo apt-get install -y dotnet-sdk-6.0
+
+sudo apt-get install aspnetcore-runtime-6.0
+
+---------------------------------------------
+
+потом, чтобы создать новый проект
+dotnet new console -n LR6
+
+там создаться папка в ней меняешь Program.cs
+ 
+чтобы скомпилировать
+переходишь в неё 
+cd LR6
+и компилируешь 
+dotnet build LR6.csproj
+после компиляции запускаешь
+dotnet run LR6

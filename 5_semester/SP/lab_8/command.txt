@@ -1,0 +1,8 @@
+компилировать
+gcc client.c -o client
+gcc server.c -o server
+
+запускать
+./client
+
+делать в одной папке, что бы файлы были рядом
