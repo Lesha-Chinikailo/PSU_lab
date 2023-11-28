@@ -14,7 +14,9 @@ function myException($exception)
 
 
 try {
-    $fd = fopen($file, 'r') or throw new Exception('Не удалось открыть файл ' . $fd);
+    $fd = fopen("t.txt", 'r');
+    if(!$fg)
+        throw new Exception('Не удалось открыть файл ' . $fd);
 } 
 catch (Exception $e) {
     myException($e);
