@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="lab_12">
+      <HintPath>..\..\lab_12\lab_12\bin\Debug\lab_12.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
