@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ChildApp</id>
+    <version>1.0.0</version>
+    <authors>ChildApp</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="1295bb2e4e2703bbb444d3f5760f0b78bd286a46" />
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="E:\PSU_lab\5_semester\SP\lab_11\11_1\ChildApp\ChildApp\bin\Debug\net6.0\ChildApp.runtimeconfig.json" target="lib\net6.0\ChildApp.runtimeconfig.json" />
+    <file src="E:\PSU_lab\5_semester\SP\lab_11\11_1\ChildApp\ChildApp\bin\Debug\net6.0\ChildApp.dll" target="lib\net6.0\ChildApp.dll" />
+  </files>
+</package>
