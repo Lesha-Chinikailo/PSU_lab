@@ -1,0 +1,15 @@
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\bin\Debug\net8.0\OOTPiSP_5.exe
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\bin\Debug\net8.0\OOTPiSP_5.deps.json
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\bin\Debug\net8.0\OOTPiSP_5.runtimeconfig.json
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\bin\Debug\net8.0\OOTPiSP_5.dll
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\bin\Debug\net8.0\OOTPiSP_5.pdb
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\OOTPiSP_5.GeneratedMSBuildEditorConfig.editorconfig
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\OOTPiSP_5.AssemblyInfoInputs.cache
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\OOTPiSP_5.AssemblyInfo.cs
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\OOTPiSP_5.csproj.CoreCompileInputs.cache
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\OOTPiSP_5.sourcelink.json
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\OOTPiSP_5.dll
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\refint\OOTPiSP_5.dll
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\OOTPiSP_5.pdb
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\OOTPiSP_5.genruntimeconfig.cache
+E:\PSU_lab\5_semester\OOTPiSP\lab_5\OOTPiSP_5\OOTPiSP_5\obj\Debug\net8.0\ref\OOTPiSP_5.dll

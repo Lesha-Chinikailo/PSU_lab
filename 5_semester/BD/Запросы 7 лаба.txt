@@ -1,0 +1,77 @@
+CREATE TABLE Клиенты(
+Клиент_ID int primary key,
+Имя varchar(255) not null,
+Адрес varchar(255) not null,
+Телефон varchar(20) not null)
+
+CREATE TABLE Сотрудники(
+Сотрудник_ID int primary key,
+Имя varchar(255) not null,
+Должность varchar(50) not null,
+Зарплата decimal(10, 2) not null)
+
+CREATE TABLE Производители(
+Производитель_ID int primary key,
+Название varchar(255) not null,
+Страна varchar(50) not null,
+Вебсайт varchar(255) not null)
+
+CREATE TABLE Категории(
+Категория_ID int primary key,
+Название varchar(255) not null,
+Описание text null,
+Популярность int not null)
+
+CREATE TABLE Заказы(
+Заказ_ID int primary key,
+Дата date not null,
+Сумма decimal(10, 2) not null,
+Клиент_ID int,
+Сотрудник_ID int,
+FOREIGN KEY (Клиент_ID) REFERENCES dbo.Клиенты(Клиент_ID),
+FOREIGN KEY (Сотрудник_ID) REFERENCES dbo.Сотрудники(Сотрудник_ID)
+);
+
+CREATE TABLE Инструменты(
+Инструмент_ID int primary key,
+Название varchar(255) not null,
+Тип varchar(50) not null,
+Производитель_ID int,
+FOREIGN KEY (Производитель_ID) REFERENCES dbo.Производители(Производитель_ID)
+);
+
+CREATE TABLE Аксессуары(
+Аксессуар_ID int primary key,
+Название varchar(255) not null,
+Цена decimal(10, 2) not null,
+Производитель_ID int,
+FOREIGN KEY (Производитель_ID) REFERENCES dbo.Производители(Производитель_ID)
+);
+
+CREATE TABLE Отзывы(
+Отзыв_ID int primary key,
+Текст text not null,
+Рейтинг int not null,
+Клиент_ID int,
+FOREIGN KEY (Клиент_ID) REFERENCES dbo.Клиенты(Клиент_ID)
+);
+
+
+CREATE TABLE ЗаказыИнструменты(
+Заказ_ID int,
+Инструмент_ID int,
+FOREIGN KEY (Заказ_ID) REFERENCES dbo.Заказы(Заказ_ID),
+FOREIGN KEY (Инструмент_ID) REFERENCES dbo.Инструменты(Инструмент_ID),
+Количество int not null,
+Цена decimal(10, 2) not null
+)
+
+
+CREATE TABLE ИнструментыКатегории(
+Инструмент_ID int,
+Категория_ID int,
+FOREIGN KEY (Инструмент_ID) REFERENCES dbo.Инструменты(Инструмент_ID),
+FOREIGN KEY (Категория_ID) REFERENCES dbo.Категории(Категория_ID),
+Рейтинг decimal(3, 2) not null,
+КоличествоПродаж int not null
+);

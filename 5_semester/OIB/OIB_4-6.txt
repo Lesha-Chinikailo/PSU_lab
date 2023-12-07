@@ -1,0 +1,47 @@
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.WriteLine("Введите основание m кольца вычетов Zm");
+int k, m = Convert.ToInt32(Console.ReadLine());
+int s;
+
+for (int i = 0; i < m; i++) { 
+    
+    for (int j = 0; j < m; j++) { 
+        Console.Write(i*j%m + " ");
+    }
+    Console.WriteLine();
+}
+
+for (int i = 0; i < m; i++) {
+    if (GCD(i, m) - 1 != 0)
+        Console.WriteLine($"делитель: {i}");
+    for (int j = 0; j < m; j++) {
+
+        
+        if ((i * j) % m == 1)
+            Console.WriteLine($"обратный элемент: {i}");
+    }
+}
+//lab6();
+
+
+static int GCD(int a, int b)
+{
+    while (b != 0)
+    {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+static void lab6()
+{
+    Console.WriteLine("Алгоритм Евклида");
+    Console.Write("A = ");
+    var a = Convert.ToInt32(Console.ReadLine());
+    Console.Write("B = ");
+    var b = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Наибольший общий делитель чисел {0} и {1} равен {2}", a, b, GCD(a, b));
+    Console.ReadLine();
+}

@@ -1,0 +1,87 @@
+while (true)
+{
+    Console.WriteLine("enter m");
+    int m = int.Parse(Console.ReadLine());
+    Dictionary<int, int> plus = new Dictionary<int, int>();
+    Dictionary<int, int> multy = new Dictionary<int, int>();
+    for (int i = 0; i <= m - 1; i++)
+    {
+        plus.Add(i, 0);
+        multy.Add(i, 0);
+    }
+    Console.WriteLine("*");
+    for (int i = 0; i <= m - 1; i++)
+    {
+        for (int j = 0; j <= m - 1; j++)
+        {
+            int tmp = (i * j) % m;
+            Console.Write((tmp + " "));
+            for (int k = 0; k <= m - 1; k++)
+            {
+                if (tmp == k)
+                    plus[k]++;
+            }
+        }
+        Console.WriteLine();
+    }
+    float valueplus = 0;
+    int keyplus = 0;
+    float minplus = 1;
+    float maxplus = 0;
+    if (plus[0] == 0)
+        plus.Remove(0);
+    foreach (var pl in plus)
+    {
+        float freq = (float)pl.Value / (m * m);
+        Console.WriteLine($"{pl.Key}: {freq}");
+        keyplus += pl.Value;
+        valueplus += freq;
+        if (freq < minplus)
+            minplus = freq;
+        if (freq > maxplus)
+            maxplus = freq;
+
+    }
+    Console.WriteLine($"{m*m} == {keyplus}.   100% == {Math.Round(valueplus) * 100}%");
+    Console.WriteLine($"min: {minplus}  max: {maxplus} diametr: {maxplus / minplus}");
+
+    Console.WriteLine("\n\n+");
+    for (int i = 0; i <= m - 1; i++)
+    {
+        for (int j = 0; j <= m - 1; j++)
+        {
+            int tmp = (i + j) % m;
+            Console.Write((tmp + " "));
+            for (int k = 0; k <= m - 1; k++)
+            {
+                if (tmp == k)
+                    multy[k]++;
+            }
+        }
+        Console.WriteLine();
+    }
+
+    float valuemulty = 0;
+    int keymulty = 0;
+    float minmulty = 1;
+    float maxmulty = 0;
+    if (multy[0] == 0)
+        multy.Remove(0);
+    foreach (var mul in multy)
+    {
+        float freq_m = (float)mul.Value / (m * m);
+        Console.WriteLine($"{mul.Key}: {freq_m}");
+        keymulty += mul.Value;
+        valuemulty += freq_m;
+        if (freq_m < minmulty)
+            minmulty = freq_m;
+        if (freq_m > maxmulty)
+            maxmulty = freq_m;
+    }
+    Console.WriteLine($"{m * m} == {keymulty}.   100% == {Math.Round(valuemulty) * 100}%");
+    Console.WriteLine($"min: {minmulty}  max: {maxmulty} diametr: {maxmulty / minmulty}");
+    Console.ReadKey();
+    Console.Clear();
+
+
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OOTPiSP_4")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1295bb2e4e2703bbb444d3f5760f0b78bd286a46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("OOTPiSP_4")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OOTPiSP_4")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

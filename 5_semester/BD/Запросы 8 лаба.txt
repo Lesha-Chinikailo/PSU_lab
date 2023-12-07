@@ -1,0 +1,20 @@
+SELECT * FROM Shop
+WHERE (ТипИнструмента = 'Струнные' AND Цена > 500) OR Наличие = 'Да';
+
+SELECT * FROM Shop
+ORDER BY ID
+OFFSET 4 ROWS FETCH NEXT 4 ROWS ONLY;
+
+SELECT * FROM Shop
+ORDER BY Цена DESC;
+
+
+
+UPDATE Shop
+SET Наличие = 'Нет', Цена = 450
+WHERE ТипИнструмента = 'Струнные' AND Бренд = 'Fender';
+
+
+
+DELETE FROM Shop
+WHERE (ТипИнструмента = 'Струнные' AND Бренд = 'Ibanez') OR Наличие 'Нет' ;
