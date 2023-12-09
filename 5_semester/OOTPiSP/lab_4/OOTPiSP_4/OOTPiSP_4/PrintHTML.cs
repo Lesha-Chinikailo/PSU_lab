@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOTPiSP_4
 {
-    class PrintHTML : IPrint
+    public class PrintHTML : IPrint
     {
         public void Print(List<Correspondence> correspondence)
         {

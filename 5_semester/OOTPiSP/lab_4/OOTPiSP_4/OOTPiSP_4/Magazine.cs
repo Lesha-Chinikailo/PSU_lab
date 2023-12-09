@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOTPiSP_4
 {
-    class Magazine
+    public class Magazine
     {
         private List<Correspondence> correspondence = new List<Correspondence>() {
             new Correspondence(0, "Correspondence 0"),

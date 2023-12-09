@@ -20,8 +20,8 @@ def send_weather_message(api_key, city):
     try:
         connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
         channel = connection.channel()
-        channel.queue_declare(queue='xxx')
-        channel.basic_publish(exchange='', routing_key='xxx', body=message)
+        channel.queue_declare(queue='222')
+        channel.basic_publish(exchange='', routing_key='222', body=message)
         connection.close()
         print('Сообщение успешно отправлено.')
     except pika.exceptions.AMQPConnectionError:
