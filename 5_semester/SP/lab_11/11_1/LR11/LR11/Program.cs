@@ -14,7 +14,7 @@ class Program
         mainProcess.Start();
 
         Process childProcess = new Process();
-        childProcess.StartInfo.FileName = "ChildApp.exe";
+        childProcess.StartInfo.FileName = @"E:\PSU_lab\5_semester\SP\lab_11\11_1\ChildApp\ChildApp\bin\Debug\net6.0\ChildApp.exe";
         childProcess.StartInfo.Arguments = $"{mainProcess.Id} {fileStream.Handle}";
         fileStream.Close();
         childProcess.Start();

@@ -1,0 +1,4 @@
+C:\Users\Ihar\Desktop\ЛАБИ\OSISP\SP14\x64\Debug\SP14.exe
+C:\Users\heaka\OneDrive\Рабочий стол\ЛАБИ\OSISP\SP14\x64\Debug\SP14.exe
+E:\temporaryProjects\SP\SP14\x64\Debug\SP14.exe
+E:\PSU_lab\5_semester\SP\lab_14\x64\Debug\SP14.exe
