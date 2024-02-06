@@ -1,0 +1,4 @@
+DROP TABLE Worker
+DROP TABLE Brigade
+DROP TABLE Department
+DROP TABLE Speciality

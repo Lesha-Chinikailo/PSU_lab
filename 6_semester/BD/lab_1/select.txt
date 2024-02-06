@@ -1,0 +1,26 @@
+SELECT AVG(SalaryOneRate) AS AverageSalary FROM Speciality
+
+SELECT MIN(SalaryOneRate) AS MINSalary FROM Speciality
+
+SELECT SUM(CountBrigade) AS AllBrigade FROM Department	
+
+SELECT MAX(Name) AS MaxName FROM Worker
+
+SELECT COUNT(DISTINCT IdSpeciality) AS DifferentSpeciality FROM Worker
+
+SELECT IdSpeciality, SUM(Rate) AS RateInSpeciality
+FROM Worker
+GROUP BY IdSpeciality WITH ROLLUP
+
+SELECT IdSpeciality, SUM(Rate) AS RateInSpeciality
+FROM Worker
+GROUP BY IdSpeciality, IdBrigade WITH CUBE
+
+SELECT IdSpeciality, SUM(Rate) AS RateInSpeciality, IdBrigade
+FROM Worker
+GROUP BY GROUPING SETS(IdSpeciality, IdBrigade) 
+
+SELECT Name, IdSpeciality, IdBrigade
+	,COUNT(*) OVER (PARTITION BY IdSpeciality) AS CountInBrigade
+FROM Worker
+

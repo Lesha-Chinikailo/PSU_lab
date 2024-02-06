@@ -1,0 +1,27 @@
+INSERT INTO Department VALUES
+('Department1', 'description1', 7),
+('Department2', 'description2', 6),
+('Department3', 'description3', 8),
+('Department4', 'description4', 5),
+('Department5', 'description5', 3)
+
+INSERT INTO Speciality VALUES
+(25000, 'cashier', 'sitting atthe cash register'),
+(35000, 'security guard', 'guards around the entire perimeter'),
+(45000, 'driver', 'drives the train'),
+(43000, 'secretary', 'secretary routine'),
+(35000, 'conductor', 'checks tickets')
+
+INSERT INTO Brigade VALUES
+(35, 'for locomotive', 1),
+(25, 'for Department2', 2),
+(15, 'for Department2', 2),
+(20, 'for Department3', 3),
+(10, 'for Department4', 4)
+
+INSERT INTO Worker VALUES
+('Lesha', 'Chinikaylo', 'le123@mail.ru', 1, 3, 3),
+('Petr', 'Petrov', 'petr123@mail.ru', 1, 1, 1),
+('Ivan', 'Ivanov', 'ivan123@mail.ru', 1, 2, 2),
+('Sasha', 'Lopok', 'sasha123@mail.ru', 1, 2, 3),
+('Maria', 'Tutor', 'ma123@mail.ru', 1, 1, 4)

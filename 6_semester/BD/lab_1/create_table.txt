@@ -1,0 +1,30 @@
+CREATE TABLE Speciality(
+IdSpeciality int NOT NULL IDENTITY PRIMARY KEY,
+SalaryOneRate money NOT NULL,
+Name varchar(30) NOT NULL,
+Description varchar(100) NOT NULL
+)
+
+CREATE TABLE Department(
+IdDepartment int NOT NULL IDENTITY PRIMARY KEY,
+Name varchar(30) NOT NULL,
+Description varchar(100) NOT NULL,
+CountBrigade int NOT NULL
+)
+
+CREATE TABLE Brigade(
+IdBrigade int NOT NULL IDENTITY PRIMARY KEY,
+CountWorker int NOT NULL,
+TypeBrigade varchar(20) NOT NULL,
+IdDepartment int NOT NULL FOREIGN KEY REFERENCES dbo.Department(IdDepartment),
+)
+
+CREATE TABLE Worker(
+IdWorker int NOT NULL IDENTITY PRIMARY KEY,
+Name varchar(50) NOT NULL,
+Surname varchar(50) NOT NULL,
+Email varchar(100) NOT NULL, 
+Rate float NOT NULL,
+IdSpeciality int NOT NULL FOREIGN KEY REFERENCES dbo.Speciality(IdSpeciality),
+IdBrigade int NOT NULL FOREIGN KEY REFERENCES dbo.Brigade(IdBrigade)
+)

@@ -1,0 +1,8 @@
+SELECT IdSpeciality, IdBrigade,
+SUM(Rate) OVER (PARTITION BY IdSpeciality) AS allRate,
+COUNT(*) OVER(PARTITION BY IdBrigade) AS cdnjv
+FROM Worker
+
+
+
+SELECT * FROM Worker

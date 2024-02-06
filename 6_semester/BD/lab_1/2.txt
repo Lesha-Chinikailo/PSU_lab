@@ -1,0 +1,50 @@
+CREATE TABLE Speciality(
+IdSpeciality int NOT NULL IDENTITY,
+SalaryOneRate money NOT NULL,
+Name varchar(30) NOT NULL,
+Description varchar(100) NOT NULL,
+
+CONSTRAINT PK_IdSpeciality PRIMARY KEY (IdSpeciality),
+)
+
+CREATE TABLE Department(
+IdDepartment int NOT NULL IDENTITY,
+NameDepartment varchar(30) NOT NULL,
+DescriptionDepartment varchar(100) NOT NULL,
+CountBrigade int NOT NULL,
+
+CONSTRAINT PK_IdDepartment PRIMARY KEY (IdDepartment),
+)
+
+CREATE TABLE Brigade(
+IdBrigade int NOT NULL IDENTITY,
+CountWorker int NOT NULL,
+TypeBrigade varchar(20) NOT NULL,
+IdDepartment int NOT NULL,
+
+CONSTRAINT PK_IdBrigade PRIMARY KEY (IdBrigade),
+
+CONSTRAINT FK_IdDepartment FOREIGN KEY (IdDepartment) REFERENCES Department(IdDepartment)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION,
+)
+
+CREATE TABLE Worker(
+IdWorker int NOT NULL IDENTITY,
+Name varchar(50) NOT NULL,
+Surname varchar(50) NOT NULL,
+Email varchar(100) NOT NULL, 
+Rate float NOT NULL,
+IdSpeciality int NOT NULL,
+IdBrigade int NOT NULL,
+
+CONSTRAINT PK_IdWorker PRIMARY KEY (IdWorker),
+
+CONSTRAINT FK_IdSpeciality FOREIGN KEY (IdSpeciality) REFERENCES Speciality(IdSpeciality)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION,
+
+CONSTRAINT FK_IdBrigade FOREIGN KEY (IdBrigade) REFERENCES Brigade(IdBrigade)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION,
+)
