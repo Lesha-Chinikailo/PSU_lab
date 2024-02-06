@@ -1,0 +1,5 @@
+SELECT *
+FROM Worker
+WHERE IdBrigade=(SELECT IdBrigade FROM Brigade WHERE 
+	IdDepartment=(SELECT IdDepartment FROM Department WHERE IdDepartment=3)
+	)

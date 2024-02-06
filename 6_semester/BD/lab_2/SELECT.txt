@@ -1,0 +1,15 @@
+SELECT *
+FROM Worker
+WHERE IdBrigade = ALL(SELECT IdBrigade FROM Worker WHERE IdBrigade = 2)
+
+SELECT *
+FROM Brigade
+WHERE IdBrigade NOT IN (SELECT IdBrigade FROM Worker WHERE Brigade.IdBrigade = Worker.IdBrigade)
+
+SELECT *
+FROM Brigade
+WHERE IdBrigade = ANY(SELECT IdBrigade FROM Worker WHERE IdBrigade=Brigade.IdBrigade)
+
+SELECT IdDepartment
+FROM Department
+WHERE EXISTS (SELECT * FROM Brigade WHERE Department.IdDepartment=Brigade.IdDepartment)

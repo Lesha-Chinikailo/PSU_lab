@@ -1,0 +1,3 @@
+SELECT * FROM Speciality
+
+sp_rename 'Speciality.Name', 'NameSpeciality', 'Column';
