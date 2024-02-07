@@ -1,0 +1,12 @@
+SELECT Name, Worker.IdSpeciality, Speciality.NameSpeciality
+FROM Worker
+JOIN Speciality -- LEFT, RIGHT, FULL
+ON Worker.IdSpeciality = Speciality.IdSpeciality
+
+SELECT *
+FROM Worker
+CROSS JOIN Speciality
+
+SELECT IdSpeciality
+FROM Speciality
+INTERSECT SELECT IdSpeciality FROM Worker --UNION, EXCEPT, INTERSECT
