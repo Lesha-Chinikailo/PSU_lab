@@ -1,6 +1,6 @@
 SELECT Name, Worker.IdSpeciality, Speciality.NameSpeciality
 FROM Worker
-JOIN Speciality -- LEFT, RIGHT, FULL
+FULL JOIN Speciality -- LEFT, RIGHT, FULL
 ON Worker.IdSpeciality = Speciality.IdSpeciality
 
 SELECT *
@@ -10,3 +10,8 @@ CROSS JOIN Speciality
 SELECT IdSpeciality
 FROM Speciality
 INTERSECT SELECT IdSpeciality FROM Worker --UNION, EXCEPT, INTERSECT
+
+SELECT Name, Speciality.NameSpeciality, Brigade.TypeBrigade
+FROM Worker
+JOIN Speciality ON Worker.IdSpeciality=Speciality.IdSpeciality
+JOIN Brigade ON Worker.IdBrigade=Brigade.IdBrigade

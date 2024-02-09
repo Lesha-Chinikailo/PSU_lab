@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HelloAndroidWorld</string>
+    <string name="hello">Full name of the student</string>
+</resources>
