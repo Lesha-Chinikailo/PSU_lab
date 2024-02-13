@@ -1,0 +1,42 @@
+﻿@page "/trains"
+
+
+<PageTitle>Trains</PageTitle>
+
+<h1>Trains</h1>
+<p>@trains.Count</p>
+@for(int i = 0;i < trains.Count;i++)
+{
+
+    <div>
+        <p>id: @i; Name: @trains[i].Name; Type: @trains[i].TypeEngine</p>
+    </div>
+    
+}
+
+
+
+
+@code {
+    List<Train> trains = new List<Train>()
+    {
+        new Train(0, "trainName1", "type1"),
+        new Train(1, "trainName2", "type2"),
+        new Train(2, "trainName3", "type3"),
+        new Train(3, "trainName4", "type4"),
+    };
+}
+
+@code{
+    public class Train{
+        public Train(int id, string name, string typeEngine)
+        {
+            Id = id;
+            Name = name;
+            TypeEngine = typeEngine;
+        }
+        public int Id{ get; set; }
+        public string Name { get; set; }
+        public string TypeEngine { get; set; }
+    }
+}
