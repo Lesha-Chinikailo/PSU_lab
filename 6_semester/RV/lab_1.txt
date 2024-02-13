@@ -1,0 +1,109 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+struct Point {
+    vector<double> points;
+};
+
+double calculateDistance(Point point_1, Point point_2) {
+    int sum = 0;
+    for (int i = 0; i < point_1.points.size(); i++) {
+        sum += pow(point_1.points[i] - point_2.points[i], 2);
+    }
+    return sqrt(sum);
+}
+
+Point calculateCentroid(vector<Point> points) {
+    Point centroid;
+    centroid.points = { 0, 0, 0, 0, 0 };
+    for (Point point : points) {
+        for (int i = 0; i < 5; i++) {
+            centroid.points[i] += point.points[i];
+        }
+    }
+    for (int i = 0; i < 5; i++) {
+        centroid.points[i] /= points.size();
+    }
+    return centroid;
+}
+
+int assignCluster(Point point, vector<Point> centroids) {
+    int cluster = 0;
+    double min = calculateDistance(point, centroids[0]);
+
+    for (int i = 1; i < centroids.size(); i++) {
+        double distance = calculateDistance(point, centroids[i]);
+        if (distance < min) {
+            min = distance;
+            cluster = i;
+        }
+    }
+
+    return cluster;
+}
+
+bool anyValuesIsNotEqual(Point point_1, Point point_2) {
+    for (int i = 0; i < 5; i++) {
+        if (point_1.points[i] != point_2.points[i])
+            return true;
+    }
+    return false;
+}
+
+void KMeans(vector<Point> data, int numberOfClusters) {
+    vector<Point> centroids(numberOfClusters);
+
+    for (int i = 0; i < numberOfClusters; i++) {
+        centroids[i] = data[rand() % data.size()];
+    }
+
+    vector<vector<Point>> clusters(numberOfClusters);
+
+    bool converged = false;
+
+    while (!converged) {
+        for (Point point : data) {
+            int cluster = assignCluster(point, centroids);
+            clusters[cluster].push_back(point);
+        }
+
+        converged = true;
+        for (int i = 0; i < numberOfClusters; i++) {
+            Point newCentroid = calculateCentroid(clusters[i]);
+            if (anyValuesIsNotEqual(newCentroid, centroids[i])) {
+                converged = false;
+            }
+            centroids[i] = newCentroid;
+            clusters[i].clear();
+        }
+    }
+
+    for (int i = 0; i < numberOfClusters; i++) {
+        cout << "Cluster " << i << ":" << endl;
+        for (Point point : clusters[i]) {
+            for (int i = 0; i < point.points.size(); i++) {
+                cout << point.points[i] + ' ';
+            }
+            cout << endl;
+        }
+        cout << "Centroid:";
+        for (int i = 0; i < centroids[i].points.size(); i++) {
+            cout << centroids[i].points[i] << ' ';
+        }
+        cout << endl << endl;
+    }
+}
+
+int main() {
+    int numberOfClusters = 6;
+    vector<Point> data(1200);
+    for (int i = 0; i < data.size(); i++) {
+        data[i].points.resize(5);
+        for (int j = 0; j < 5; j++) {
+            data[i].points[j] = rand() % 50000;
+        }
+    }
+    KMeans(data, numberOfClusters);
+}
