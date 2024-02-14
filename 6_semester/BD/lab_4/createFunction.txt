@@ -1,0 +1,72 @@
+CREATE FUNCTION ShowWorkersInfo()
+RETURNS TABLE
+AS
+RETURN
+(
+	SELECT Name, Rate, IdSpeciality, Brigade.TypeBrigade AS typeBrigade
+    FROM Worker
+    JOIN Brigade ON Brigade.IdBrigade = Worker.IdBrigade
+)
+
+SELECT * FROM ShowWorkersInfo()
+
+
+CREATE FUNCTION SpecialitiesAverageSalary()
+RETURNS FLOAT
+BEGIN
+	RETURN (SELECT AVG(SalaryOneRate) FROM Speciality)
+END;
+
+SELECT [dbo].[SpecialitiesAverageSalary]()
+
+
+CREATE FUNCTION GetWorkersTable()
+RETURNS @res TABLE (ID INT PRIMARY KEY, Worker_Name NVARCHAR(50), Email NVARCHAR(100))
+AS 
+BEGIN
+	INSERT @res (ID, Worker_Name, Email)
+	SELECT IdWorker, Name, Email FROM Worker
+	RETURN
+END;
+
+SELECT * FROM GetWorkersTable()
+
+
+CREATE FUNCTION ShowWorkerInBrigadeAndDepartment()
+RETURNS TABLE
+AS
+RETURN
+(
+	SELECT Name, Speciality.NameSpeciality, Brigade.TypeBrigade
+	FROM Worker
+	JOIN Speciality ON Worker.IdSpeciality=Speciality.IdSpeciality
+	JOIN Brigade ON Worker.IdBrigade=Brigade.IdBrigade
+)
+
+SELECT * FROM ShowWorkerInBrigadeAndDepartment()
+
+
+CREATE FUNCTION ExceptSpeciality()
+RETURNS TABLE
+AS
+RETURN
+(
+	SELECT IdSpeciality
+	FROM Speciality
+	EXCEPT SELECT IdSpeciality FROM Worker 
+)
+
+SELECT * FROM ExceptSpeciality()
+
+
+CREATE FUNCTION IntersectSpeciality()
+RETURNS TABLE
+AS
+RETURN
+(
+	SELECT IdSpeciality
+	FROM Speciality
+	INTERSECT SELECT IdSpeciality FROM Worker 
+)
+
+SELECT * FROM IntersectSpeciality()
