@@ -3,19 +3,25 @@
 namespace pract_1_1.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/image")]
     public class ImageController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var image = System.IO.File.OpenRead("wwwroot\\images\\image_3.jpg");
-            return File(image, "image/jpg");
+            string imagePath = "wwwroot\\images\\image_3.jpg";
+
+            if(!System.IO.File.Exists(imagePath))
+            {
+                return NotFound();
+            }
+            var image = System.IO.File.OpenRead(imagePath);
+            byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+
+            string contentType = "image/jpg";
+
+            return File(imageBytes, contentType);
         }
     }
 }

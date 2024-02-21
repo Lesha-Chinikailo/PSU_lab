@@ -1,0 +1,17 @@
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\bin\Debug\net8.0-windows\WinFormsGet.exe
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\bin\Debug\net8.0-windows\WinFormsGet.deps.json
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\bin\Debug\net8.0-windows\WinFormsGet.runtimeconfig.json
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\bin\Debug\net8.0-windows\WinFormsGet.dll
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\bin\Debug\net8.0-windows\WinFormsGet.pdb
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.Form1.resources
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.csproj.GenerateResource.cache
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.GeneratedMSBuildEditorConfig.editorconfig
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.AssemblyInfoInputs.cache
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.AssemblyInfo.cs
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.csproj.CoreCompileInputs.cache
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.sourcelink.json
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.dll
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\refint\WinFormsGet.dll
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.pdb
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\WinFormsGet.genruntimeconfig.cache
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\WinFormsGet\obj\Debug\net8.0-windows\ref\WinFormsGet.dll

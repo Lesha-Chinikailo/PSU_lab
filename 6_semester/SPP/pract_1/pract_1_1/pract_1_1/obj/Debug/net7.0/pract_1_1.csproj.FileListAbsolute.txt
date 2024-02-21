@@ -25,3 +25,6 @@ E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\pract_1_1\obj\Debug\net7.0\refint\pr
 E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\pract_1_1\obj\Debug\net7.0\pract_1_1.pdb
 E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\pract_1_1\obj\Debug\net7.0\pract_1_1.genruntimeconfig.cache
 E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\pract_1_1\obj\Debug\net7.0\ref\pract_1_1.dll
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\pract_1_1\bin\Debug\net7.0\myFile.json
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\pract_1_1\bin\Debug\net7.0\weather_forecast.json
+E:\PSU_lab\6_semester\SPP\pract_1\pract_1_1\pract_1_1\bin\Debug\net7.0\User.json
