@@ -1,0 +1,35 @@
+﻿@page "/text"
+
+@inject HttpClient Http
+
+
+<h3>Text</h3>
+
+<PageTitle>Text</PageTitle>
+
+
+@if (text == null)
+{
+        <p>Loading...</p>
+}
+else
+{
+    <p>Name: @text.Name Age: @text.Age</p>
+}
+
+
+@code {
+    private User? text;
+
+    protected override async Task OnInitializedAsync()
+    {
+        text = await Http.GetFromJsonAsync<User>("sample-data/User.json");
+    }
+}
+
+@code{
+    class User{
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+}
