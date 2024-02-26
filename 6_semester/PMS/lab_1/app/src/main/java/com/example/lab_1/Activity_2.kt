@@ -1,0 +1,2 @@
+import androidx.activity.ComponentActivity
+
