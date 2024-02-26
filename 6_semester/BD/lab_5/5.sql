@@ -54,3 +54,12 @@ SELECT * FROM Worker
 
 DELETE FROM AllInformationWorkerView
 WHERE IdBrigade = 5
+
+DECLARE @myTable TABLE
+(IdWorker int, Name varchar(50))
+
+INSERT INTO @myTable VALUES
+(1, 'lesha'),
+(2, 'pasha')
+
+SELECT * FROM @myTable

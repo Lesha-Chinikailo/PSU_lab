@@ -1,72 +1,113 @@
-CREATE TRIGGER Speciality_INSERT_UPDATE ----
-ON Speciality
-AFTER INSERT, UPDATE
-AS 
-UPDATE Speciality
-SET Salary = Salary + Salary * 0.2
-WHERE ID = (SELECT ID FROM inserted)
+--CREATE TRIGGER Speciality_INSERT_UPDATE ----
+--ON Speciality
+--AFTER INSERT, UPDATE
+--AS 
+--UPDATE Speciality
+--SET SalaryOneRate = SalaryOneRate + SalaryOneRate * 0.2
+--WHERE IdSpeciality = (SELECT IdSpeciality FROM inserted)
 
-INSERT INTO Speciality VALUES
-('dvornik', 300)
+--INSERT INTO Speciality VALUES
+--(40000, 'someone', 'work in building')
 
-DISABLE TRIGGER Speciality_INSERT_UPDATE ON Speciality
-ENABLE TRIGGER Speciality_INSERT_UPDATE ON Speciality
+--SELECT * FROM Speciality
 
-CREATE TRIGGER Workers_INSTEAD_OF_DELETE ----
-ON Workers
-INSTEAD OF DELETE
-AS 
-SELECT Workers.Worker_name FROM Workers 
-WHERE Worker_name = ' '
+--DISABLE TRIGGER Speciality_INSERT_UPDATE ON Speciality
+--ENABLE TRIGGER Speciality_INSERT_UPDATE ON Speciality
+-----------------------------------------------
+--CREATE TRIGGER Workers_INSTEAD_OF_DELETE ----
+--ON Worker
+--INSTEAD OF DELETE
+--AS 
+--SELECT Worker.Name FROM Worker 
+--WHERE Name = 'noname'
 
-DELETE FROM Workers 
-WHERE Workers.ID = 1
+--DELETE FROM Worker 
+--WHERE Worker.IdWorker = 7
+
+--SELECT * FROM Worker
+------------------------------------------
+--CREATE TRIGGER Speciality_INSTEAD_DELETE
+--ON Speciality
+--INSTEAD OF DELETE
+--AS
+--UPDATE Speciality
+--SET NameSpeciality = 'delete'
+--WHERE IdSpeciality = (SELECT IdSpeciality FROM deleted)
+
+--DELETE FROM Speciality
+--WHERE IdSpeciality = 6
+
+--DISABLE TRIGGER Speciality_INSTEAD_DELETE ON Speciality
+--ENABLE TRIGGER Speciality_INSTEAD_DELETE ON Speciality
+
+--SELECT * FROM Speciality
+--------------------------------------
+--ALTER TRIGGER Worker_INSTEAD_OF_INSERT
+--ON Worker
+--INSTEAD OF INSERT
+--AS
+--SELECT 'we are '+ CAST(COUNT(IdWorker) AS nvarchar)+' worker. there are no more places' AS Warning
+--FROM Worker
+
+--INSERT INTO Worker VALUES
+--('Tola', 'svoi', 'to123@mail.ru', 1, 2, 4)
+
+--DISABLE TRIGGER Worker_INSTEAD_OF_INSERT ON Worker
+--ENABLE TRIGGER Worker_INSTEAD_OF_INSERT ON Worker
+-----------------------------------------------
+--CREATE TRIGGER Worker_AFTER_UPDATE
+--ON Worker
+--AFTER UPDATE
+--AS
+--UPDATE Worker
+--SET Name = Name + 'update'
+--WHERE IdWorker = (SELECT IdWorker FROM inserted)
+
+--UPDATE Worker
+--SET Rate = Rate + 0.1
+--WHERE IdWorker = 7
+
+--DISABLE TRIGGER Worker_AFTER_UPDATE ON Worker
+--ENABLE TRIGGER Worker_AFTER_UPDATE ON Worker
+
+--SELECT * FROM Worker
+-----------------------------------
+-----------------------------------
+
+
+
+
+
+
+
 
 CREATE TABLE WorkersHistory
 (
-	ID INT NOT NULL,
-	Worker_name VARCHAR(50),
-	Speciality_ID INT NOT NULL,
-	Process VARCHAR(20)
-
-    FOREIGN KEY (Speciality_ID) REFERENCES  Speciality(ID)
-		ON UPDATE NO ACTION
-		ON DELETE NO ACTION,
+	IdHistory INT NOT NULL,
+	Operarion VARCHAR(50),
 )
 
-USE buroKadrov
-GO
-CREATE TRIGGER Workers_INSERT ----
-ON Workers
-AFTER INSERT
+CREATE TRIGGER Worker_Operation
+ON Worker
+AFTER INSERT, DELETE
 AS
-INSERT INTO WorkersHistory(ID, Worker_name, Speciality_ID, Process)
-SELECT ID, Worker_name, Speciality_ID, 'inserted'
-FROM inserted
+INSERT INTO WorkersHistory(IdHistory, Operarion)
+SELECT IdWorker, 'was added'
+FROM Worker
+WHERE IdWorker = (SELECT IdWorker FROM inserted)
+SELECT IdWorker, 'was deleted'
+FROM Worker
+WHERE IdWorker = (SELECT IdWorker FROM deleted)
 
-USE buroKadrov
-GO
-CREATE TRIGGER Workers_UPDATE ----
-ON Workers
-AFTER UPDATE
-AS
-INSERT INTO WorkersHistory(ID, Worker_name, Speciality_ID, Process)
-SELECT ID, Worker_name, Speciality_ID, 'updated'
-FROM inserted
+DISABLE TRIGGER Worker_Operation ON Worker
+ENABLE TRIGGER Worker_Operation ON Worker
 
-UPDATE Workers SET Speciality_ID = 3
-WHERE Workers.ID = 3009
+INSERT INTO Worker VALUES
+('Tola', 'svoi', 'to123@mail.ru', 1, 3, 4)
 
-USE buroKadrov
-GO
-CREATE TRIGGER Workers_DELETE ----
-ON Workers
-AFTER DELETE
-AS
-INSERT INTO WorkersHistory(ID, Worker_name, Speciality_ID, Process)
-SELECT ID, Worker_name, Speciality_ID, 'deleted'
-FROM deleted
+SELECT * FROM WorkersHistory
+SELECT * FROM Worker
 
-USE buroKadrov
-DELETE FROM Workers
-WHERE ID = 3009
+DELETE FROM Worker
+WHERE IdWorker = 10
+
