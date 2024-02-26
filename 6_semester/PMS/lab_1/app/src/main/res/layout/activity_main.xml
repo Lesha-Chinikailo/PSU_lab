@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"    
     android:orientation="vertical"
@@ -10,4 +10,39 @@
         android:text="@string/hello"
         android:background="@color/view_bkg_color"
         android:textColor="@color/text_color"/>
-</LinearLayout>
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:text="@string/label_text" />
+    <EditText
+        android:id="@+id/entry"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label"
+        android:background="@android:drawable/editbox_background"
+        android:hint="@string/entry_hint"/>
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/entry"
+        android:layout_marginLeft="10dip"
+        android:text="@android:string/ok"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ok"
+        android:layout_toLeftOf="@id/ok"
+        android:text="@android:string/cancel"/>
+    <!--<Button
+        android:id="@+id/myButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Button" />
+        -->
+</RelativeLayout>

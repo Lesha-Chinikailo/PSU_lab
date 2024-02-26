@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">HelloAndroidWorld</string>
     <string name="hello">Full name of the student</string>
+    <string name="name_button">this button for change activity</string>
+    <string name="label_text">Enter your text:</string>
+    <string name="entry_hint">Entry field</string>
 </resources>

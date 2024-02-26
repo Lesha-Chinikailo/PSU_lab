@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Привет, мир Android!</string>
     <string name="hello">Полное ФИО студента</string>
+    <string name="name_button">эта кнопка для изменение активности</string>
+    <string name="label_text">Введите текст:</string>
+    <string name="entry_hint">место ввода</string>
 </resources>

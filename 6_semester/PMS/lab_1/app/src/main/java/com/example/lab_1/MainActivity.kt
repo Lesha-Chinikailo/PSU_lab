@@ -13,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.lab_1.ui.theme.Lab_1Theme
+import android.widget.Button;
+import android.widget.TextView;
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,9 +29,16 @@ class MainActivity : ComponentActivity() {
 //                    Greeting("Android")
 //
 //                }
+
+            }
+            val myButton: Button = findViewById(R.id.myButton)
+            myButton.setOnClickListener{
+                Toast.makeText(this, "you click on button", Toast.LENGTH_LONG).show();
             }
         }
+
     }
+
     @Override
     protected override fun onPause() {
         super.onPause();
