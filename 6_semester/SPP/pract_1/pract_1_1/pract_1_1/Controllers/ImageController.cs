@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 
 namespace pract_1_1.Controllers
 {
     [ApiController]
     [Route("/image")]
+    [EnableCors("AllowSpecificOrigins")]
     public class ImageController : Controller
     {
 

@@ -14,16 +14,17 @@
 }
 else
 {
-    <p>Name: @text.Name Age: @text.Age</p>
+    <p>@text</p>
 }
 
 
 @code {
-    private User? text;
+    private string? text;
 
     protected override async Task OnInitializedAsync()
     {
-        text = await Http.GetFromJsonAsync<User>("sample-data/User.json");
+        var response = await Http.GetAsync("https://localhost:7103/text");
+        text = await response.Content.ReadAsStringAsync();
     }
 }
 
