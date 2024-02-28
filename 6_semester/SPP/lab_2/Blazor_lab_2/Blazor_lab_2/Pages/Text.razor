@@ -23,7 +23,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        var response = await Http.GetAsync("https://localhost:7103/text");
+        var response = await Http.GetAsync("https://localhost:7103/json");
         text = await response.Content.ReadAsStringAsync();
     }
 }
