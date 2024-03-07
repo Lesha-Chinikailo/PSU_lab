@@ -4,4 +4,12 @@
     <string name="name_button">эта кнопка для изменение активности</string>
     <string name="label_text">Введите текст:</string>
     <string name="entry_hint">место ввода</string>
+    <string name="title_activity_with_tab_widget">активность с TabWidget</string>
+    <string name="first_fragment_label">первый фрагемент</string>
+    <string name="second_fragment_label">первый фрагемент</string>
+    <string name="next">следующий</string>
+    <string name="previous">предыдущий</string>
+    <string name="lorem_ipsum">
+        немного текста
+    </string>
 </resources>

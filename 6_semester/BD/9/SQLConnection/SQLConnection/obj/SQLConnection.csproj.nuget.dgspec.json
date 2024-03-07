@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VS\\SQLConnection\\SQLConnection\\SQLConnection.csproj": {}
+    "E:\\PSU_lab\\6_semester\\BD\\9\\SQLConnection\\SQLConnection\\SQLConnection.csproj": {}
   },
   "projects": {
-    "D:\\VS\\SQLConnection\\SQLConnection\\SQLConnection.csproj": {
+    "E:\\PSU_lab\\6_semester\\BD\\9\\SQLConnection\\SQLConnection\\SQLConnection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS\\SQLConnection\\SQLConnection\\SQLConnection.csproj",
+        "projectUniqueName": "E:\\PSU_lab\\6_semester\\BD\\9\\SQLConnection\\SQLConnection\\SQLConnection.csproj",
         "projectName": "SQLConnection",
-        "projectPath": "D:\\VS\\SQLConnection\\SQLConnection\\SQLConnection.csproj",
-        "packagesPath": "C:\\Users\\fles\\.nuget\\packages\\",
-        "outputPath": "D:\\VS\\SQLConnection\\SQLConnection\\obj\\",
+        "projectPath": "E:\\PSU_lab\\6_semester\\BD\\9\\SQLConnection\\SQLConnection\\SQLConnection.csproj",
+        "packagesPath": "C:\\Users\\Lesha\\.nuget\\packages\\",
+        "outputPath": "E:\\PSU_lab\\6_semester\\BD\\9\\SQLConnection\\SQLConnection\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\fles\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lesha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

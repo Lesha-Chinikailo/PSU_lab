@@ -73,7 +73,7 @@ class Program
 	}
 	public static async Task DoSomething(string login, string password)
 	{
-		string connectionString = $"Server=(localdb)\\mssqllocaldb;Database=buroKadrov;User Id={login};Password={password};";
+		string connectionString = $"Server=(localdb)\\mssqllocaldb;Database=lab_1;User Id={login};Password={password};";
 		SqlConnection connection = new SqlConnection(connectionString);
 
 		// Открываем подключение

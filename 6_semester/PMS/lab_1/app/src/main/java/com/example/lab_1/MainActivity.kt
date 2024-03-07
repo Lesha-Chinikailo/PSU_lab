@@ -1,20 +1,17 @@
 package com.example.lab_1
 
-import android.app.Activity;
-import android.widget.Toast;
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.lab_1.ui.theme.Lab_1Theme
-import android.widget.Button;
-import android.widget.TextView;
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +31,8 @@ class MainActivity : ComponentActivity() {
             val myButton: Button = findViewById(R.id.myButton)
             myButton.setOnClickListener{
                 Toast.makeText(this, "you click on button", Toast.LENGTH_LONG).show();
+                val intent: Intent = Intent(this, Activity_2::class.java)
+                startActivity(intent)
             }
         }
 
