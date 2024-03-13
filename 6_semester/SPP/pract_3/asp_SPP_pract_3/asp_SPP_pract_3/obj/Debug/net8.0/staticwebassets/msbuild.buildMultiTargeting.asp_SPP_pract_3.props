@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\asp_SPP_pract_3.props" />
+</Project>

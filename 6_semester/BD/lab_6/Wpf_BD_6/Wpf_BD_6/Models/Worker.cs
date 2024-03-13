@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Wpf_BD_6.Models;
 
+[Table("Worker", Schema = "WorkersSchema")]
 public partial class Worker
 {
     public int IdWorker { get; set; }

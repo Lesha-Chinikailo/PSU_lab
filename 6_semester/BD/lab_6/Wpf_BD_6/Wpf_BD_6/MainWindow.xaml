@@ -6,11 +6,78 @@
         xmlns:local="clr-namespace:Wpf_BD_6"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid>
-            <DataGrid x:Name="table" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="514,0,0,0"/>
-        </Grid>
+    <Grid Background="#FFE5E5E5">
 
+        <Grid>
+            <!--<ListBox x:Name="listTable" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,0,688,0" SelectionChanged="listTable_SelectionChanged"/>-->
+            <TabControl x:Name="TabControlTable" Margin="0,0,0,35">
+                <TabItem x:Name="TabSpeciality" Header="Speciality">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="84*"/>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition Width="37*"/>
+                            <ColumnDefinition Width="673*"/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid x:Name="gridTableSpeciality" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="300,0,0,10" Grid.Column="3" SelectionChanged="gridTableSpeciality_SelectionChanged"/>
+                        <Label x:Name="lab_NameSpeciality" Content="Name speciality" HorizontalAlignment="Left" Margin="35,70,0,0" VerticalAlignment="Top" Height="26" Width="105" Grid.ColumnSpan="4"/>
+                        <TextBox x:Name="txb_NameSpeciality" Grid.Column="3" HorizontalAlignment="Left" Margin="38,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="18"/>
+                        <Label x:Name="lab_DescriptionSpeciality" Content="Description speciality" HorizontalAlignment="Left" Margin="35,106,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="26" Width="122"/>
+                        <TextBox x:Name="txb_DescriptionSpeciality" Grid.Column="3" HorizontalAlignment="Left" Margin="38,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="18"/>
+                        <Label x:Name="lab_SalaryOneRate" Content="Salary one rate" HorizontalAlignment="Left" Margin="40,146,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="26" Width="88"/>
+                        <TextBox x:Name="txb_SalaryOneRate" Grid.Column="3" HorizontalAlignment="Left" Margin="38,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="18"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TabWorker" Header="Worker">
+                    <Grid Background="#FFE5E5E5">
+                        <DataGrid x:Name="gridTableWorker" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="337,0,0,10" SelectionChanged="gridTableWorker_SelectionChanged"/>
+                        <Label x:Name="lab_NameWorker" Content="Name" HorizontalAlignment="Left" Margin="45,56,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_NameWorker" HorizontalAlignment="Left" Margin="115,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_SurnameWorker" Content="Surname" HorizontalAlignment="Left" Margin="45,96,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_SurnameWorker" HorizontalAlignment="Left" Margin="115,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_Email" Content="Email" HorizontalAlignment="Left" Margin="45,155,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_Email" HorizontalAlignment="Left" Margin="115,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_Rate" Content="Rate" HorizontalAlignment="Left" Margin="45,204,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_Rate" HorizontalAlignment="Left" Margin="115,208,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_IdSpeciality" Content="IdSpeciality" HorizontalAlignment="Left" Margin="45,253,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_IdSpeciality" HorizontalAlignment="Left" Margin="115,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_IdBrigade" Content="IdBrigade" HorizontalAlignment="Left" Margin="45,300,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_IdBrigade" HorizontalAlignment="Left" Margin="115,304,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TabBrigade" Header="Brigade">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="42*"/>
+                            <ColumnDefinition Width="355*"/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid x:Name="gridTableBrigade" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="337,0,0,10" Grid.Column="1" SelectionChanged="gridTableBrigade_SelectionChanged"/>
+                        <Label x:Name="lab_CountOfWorkers" Content="Count of workers" HorizontalAlignment="Left" Margin="63,88,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="txb_CountOfWorkers" Grid.Column="1" HorizontalAlignment="Left" Margin="90,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_TypeBrigade" Grid.Column="1" Content="Type brigade" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" Width="85"/>
+                        <TextBox x:Name="txb_TypeBrigade" Grid.Column="1" HorizontalAlignment="Left" Margin="90,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_IdDepartment" Grid.Column="1" Content="Id Department" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Width="80"/>
+                        <TextBox x:Name="txb_IdDepartment" Grid.Column="1" HorizontalAlignment="Left" Margin="90,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TabDepartment" Header="Department">
+                    <Grid Background="#FFE5E5E5">
+                        <DataGrid x:Name="gridTableDepartment" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="337,0,0,10"/>
+                        <Label x:Name="lab_NameDepartment" Content="Name Department" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_NameDepartment" HorizontalAlignment="Left" Margin="167,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_DescriptionDepartment" Content="Description Department" HorizontalAlignment="Left" Margin="20,127,0,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txb_DescriptionDepartment" HorizontalAlignment="Left" Margin="167,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <Label x:Name="lab_CountOfBrigade" Content="Count of brigade" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="txb_CountOfBrigade" HorizontalAlignment="Left" Margin="167,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+                    </Grid>
+
+                </TabItem>
+            </TabControl>
+            <Button x:Name="btn_Add" Content="Add" HorizontalAlignment="Left" Margin="439,384,0,0" VerticalAlignment="Top" Click="btn_Add_Click"/>
+            <Button x:Name="btn_Edit" Content="Edit" HorizontalAlignment="Left" Margin="482,384,0,0" VerticalAlignment="Top" Click="btn_Edit_Click"/>
+            <Button x:Name="btn_Delete" Content="Delete" HorizontalAlignment="Left" Margin="524,384,0,0" VerticalAlignment="Top" Click="btn_Delete_Click"/>
+
+        </Grid>
     </Grid>
-    
+
 </Window>

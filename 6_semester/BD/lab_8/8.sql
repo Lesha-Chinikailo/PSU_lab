@@ -14,18 +14,20 @@
 --DISABLE TRIGGER Speciality_INSERT_UPDATE ON Speciality
 --ENABLE TRIGGER Speciality_INSERT_UPDATE ON Speciality
 -----------------------------------------------
---CREATE TRIGGER Workers_INSTEAD_OF_DELETE ----
---ON Worker
---INSTEAD OF DELETE
---AS 
---SELECT Worker.Name FROM Worker 
---WHERE Name = 'noname'
+CREATE TRIGGER Workers_INSTEAD_OF_DELETE ----
+ON Worker
+INSTEAD OF DELETE
+AS 
+SELECT Worker.Name FROM Worker 
+WHERE Name = 'noname'
 
---DELETE FROM Worker 
---WHERE Worker.IdWorker = 7
+DELETE FROM Worker 
+WHERE Worker.IdWorker = 7
 
---SELECT * FROM Worker
-------------------------------------------
+DISABLE TRIGGER Workers_INSTEAD_OF_DELETE ON WorkersSchema.Worker
+
+SELECT * FROM Worker
+----------------------------------------
 --CREATE TRIGGER Speciality_INSTEAD_DELETE
 --ON Speciality
 --INSTEAD OF DELETE
@@ -52,7 +54,7 @@
 --INSERT INTO Worker VALUES
 --('Tola', 'svoi', 'to123@mail.ru', 1, 2, 4)
 
---DISABLE TRIGGER Worker_INSTEAD_OF_INSERT ON Worker
+DISABLE TRIGGER Worker_INSTEAD_OF_INSERT ON WorkersSchema.Worker
 --ENABLE TRIGGER Worker_INSTEAD_OF_INSERT ON Worker
 -----------------------------------------------
 --CREATE TRIGGER Worker_AFTER_UPDATE
@@ -67,7 +69,7 @@
 --SET Rate = Rate + 0.1
 --WHERE IdWorker = 7
 
---DISABLE TRIGGER Worker_AFTER_UPDATE ON Worker
+DISABLE TRIGGER Worker_AFTER_UPDATE ON WorkersSchema.Worker
 --ENABLE TRIGGER Worker_AFTER_UPDATE ON Worker
 
 --SELECT * FROM Worker
