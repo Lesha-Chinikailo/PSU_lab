@@ -1,0 +1,123 @@
+CREATE TABLE Speciality(
+IdSpeciality int NOT NULL IDENTITY PRIMARY KEY,
+SalaryOneRate money NOT NULL,
+Name varchar(30) NOT NULL,
+Description varchar(100) NOT NULL
+)
+
+CREATE TABLE TypeDepartment(
+IdTypeDepartment int NOT NULL IDENTITY PRIMARY KEY,
+NameType varchar(20) NOT NULL,
+)
+
+CREATE TABLE Department(
+IdDepartment int NOT NULL IDENTITY PRIMARY KEY,
+Name varchar(30) NOT NULL,
+Description varchar(100) NOT NULL,
+CountBrigade int NOT NULL,
+IdTypeDepartment int NOT NULL FOREIGN KEY REFERENCES dbo.TypeDepartment(IdTypeDepartment)
+)
+
+CREATE TABLE Engine(
+IdEngine int NOT NULL IDENTITY PRIMARY KEY,
+TypeEngine varchar(20) NOT NULL,
+Efficiency float NOT NULL,
+NumberOfCylinders int
+)
+
+CREATE TABLE Locomative(
+IdLocomative int NOT NULL IDENTITY PRIMARY KEY,
+Weight float NOT NULL,
+TractionForce float NOT NULL,
+
+IdEngine int NOT NULL FOREIGN KEY REFERENCES dbo.Engine(IdEngine)
+)
+
+CREATE TABLE Brigade(
+IdBrigade int NOT NULL IDENTITY PRIMARY KEY,
+CountWorker int NOT NULL,
+
+IdDepartment int NOT NULL FOREIGN KEY REFERENCES dbo.Department(IdDepartment),
+IdLocomative int FOREIGN KEY REFERENCES dbo.Locomative(IdLocomative)
+)
+
+CREATE TABLE Worker(
+IdWorker int NOT NULL IDENTITY PRIMARY KEY,
+Name varchar(50) NOT NULL,
+Surname varchar(50) NOT NULL,
+Email varchar(100) NOT NULL, 
+Rate float NOT NULL,
+IdSpeciality int NOT NULL FOREIGN KEY REFERENCES dbo.Speciality(IdSpeciality),
+IdBrigade int NOT NULL FOREIGN KEY REFERENCES dbo.Brigade(IdBrigade)
+)
+--'Branded', 'Fast', 'Passenger'
+CREATE TABLE TypeTrain(
+IdTypeTrain int NOT NULL IDENTITY PRIMARY KEY,
+NameType varchar(10)
+)
+
+CREATE TABLE Train(
+IdTrain int NOT NULL IDENTITY PRIMARY KEY,
+NumberOfTrainCarriage int NOT NULL,
+
+IdLocomative int NOT NULL FOREIGN KEY REFERENCES dbo.Locomative(IdLocomative),
+IdTypeTrain int NOT NULL FOREIGN KEY REFERENCES dbo.TypeTrain(IdTypeTrain)
+)
+
+CREATE TABLE Driver(
+IdDriver int NOT NULL IDENTITY PRIMARY KEY,
+DateOfMedicalExamination Date NOT NULL,
+
+IdWorker int NOT NULL FOREIGN KEY REFERENCES dbo.Worker(IdWorker)
+)
+
+CREATE TABLE Train_Driver(
+IdDriver int NOT NULL FOREIGN KEY REFERENCES dbo.Driver(IdDriver),
+IdTrain int nOT NULL FOREIGN KEY REFERENCES dbo.Train(IdTrain),
+)
+
+CREATE TABLE TypeTrainCarriage(
+IdTypeTrainCarriage int NOT NULL IDENTITY PRIMARY KEY,
+NameType varchar(20) NOT NULL,
+)
+
+CREATE TABLE TrainCarriage(
+IdTrainCarriage int NOT NULL IDENTITY PRIMARY KEY,
+NumberOFSeats int NOT NULL,
+
+IdTrain int NOT NULL FOREIGN KEY REFERENCES dbo.Train(IdTrain),
+IdTypeTrainCarriage int NOT NULL FOREIGN KEY REFERENCES dbo.TypeTrainCarriage(IdTypeTrainCarriage),
+)
+
+CREATE TABLE Ticket(
+IdTicket int NOT NULL IDENTITY PRIMARY KEY,
+PlaceofNumber int NOT NULL,
+
+IdTrainCarriage int NOT NULL FOREIGN KEY REFERENCES dbo.TrainCarriage(IdTrainCarriage)
+)
+
+CREATE TABLE Route(
+IdRoute int NOT NULL IDENTITY PRIMARY KEY,
+DepartureTime DATETIME NOT NULL,
+ArravalTime DATETIME NOT NULL,
+)
+
+CREATE TABLE Schedule(
+IdSchedule int NOT NULL IDENTITY PRIMARY KEY,
+
+IdTrain int NOT NULL FOREIGN KEY REFERENCES dbo.Train(IdTrain),
+IdRoute int NOT NULL FOREIGN KEY REFERENCES dbo.Route(IdRoute),
+)
+
+CREATE TABLE Station(
+IdStation int NOT NULL IDENTITY PRIMARY KEY,
+NameStation varchar(50) NOT NULL,
+)
+
+CREATE TABLE Station_Route(
+IdRoute int NOT NULL FOREIGN KEY REFERENCES dbo.Route(IdRoute),
+IdStation int NOT NULL FOREIGN KEY REFERENCES dbo.Station(IdStation),
+
+DepartureTime DATETIME NOT NULL,
+ArravalTime DATETIME NOT NULL,
+)
