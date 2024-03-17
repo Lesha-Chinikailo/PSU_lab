@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("asp_SPP_pract_3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fd8a06a32ef5e0d65ed76737037effc431acc79")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ecd58dce1b3e9a8fc5e0fe276f4c0e5ccd4f636a")]
 [assembly: System.Reflection.AssemblyProductAttribute("asp_SPP_pract_3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("asp_SPP_pract_3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
