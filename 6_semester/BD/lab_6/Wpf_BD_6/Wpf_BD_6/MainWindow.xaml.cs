@@ -261,5 +261,30 @@ namespace Wpf_BD_6
                     break;
             }
         }
+
+        private void btn_Clear_Click(object sender, RoutedEventArgs e)
+        {
+            switch (TabControlTable.SelectedIndex)
+            {
+                case 0:
+                    gridTableSpeciality.SelectedIndex = -1;
+                    txb_NameSpeciality.Text = txb_DescriptionSpeciality.Text = txb_SalaryOneRate.Text = string.Empty;
+                    break;
+                case 1:
+                    gridTableWorker.SelectedIndex = -1;
+                    txb_NameWorker.Text = txb_SurnameWorker.Text = txb_Email.Text = txb_Rate.Text = txb_IdBrigade.Text = txb_IdSpeciality.Text = string.Empty;
+                    break;
+                case 2:
+                    gridTableBrigade.SelectedIndex = -1;
+                    txb_CountOfWorkers.Text = txb_TypeBrigade.Text = txb_IdDepartment.Text = string.Empty;
+                    break;
+                case 3:
+                    gridTableDepartment.SelectedIndex = -1;
+                    txb_NameDepartment.Text = txb_DescriptionDepartment.Text = txb_CountOfBrigade.Text = string.Empty;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

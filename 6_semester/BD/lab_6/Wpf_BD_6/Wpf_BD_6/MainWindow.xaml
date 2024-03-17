@@ -76,6 +76,7 @@
             <Button x:Name="btn_Add" Content="Add" HorizontalAlignment="Left" Margin="439,384,0,0" VerticalAlignment="Top" Click="btn_Add_Click"/>
             <Button x:Name="btn_Edit" Content="Edit" HorizontalAlignment="Left" Margin="482,384,0,0" VerticalAlignment="Top" Click="btn_Edit_Click"/>
             <Button x:Name="btn_Delete" Content="Delete" HorizontalAlignment="Left" Margin="524,384,0,0" VerticalAlignment="Top" Click="btn_Delete_Click"/>
+            <Button x:Name="btn_Clear" Content="Clear" HorizontalAlignment="Left" Margin="576,384,0,0" VerticalAlignment="Top" Click="btn_Clear_Click"/>
 
         </Grid>
     </Grid>
