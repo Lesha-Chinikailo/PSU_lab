@@ -7,22 +7,28 @@ Description varchar(100) NOT NULL
 
 CREATE TABLE TypeDepartment(
 IdTypeDepartment int NOT NULL IDENTITY PRIMARY KEY,
-NameType varchar(20) NOT NULL,
+NameType varchar(50) NOT NULL,
 )
 
 CREATE TABLE Department(
 IdDepartment int NOT NULL IDENTITY PRIMARY KEY,
 Name varchar(30) NOT NULL,
-Description varchar(100) NOT NULL,
+Description varchar(150) NOT NULL,
 CountBrigade int NOT NULL,
 IdTypeDepartment int NOT NULL FOREIGN KEY REFERENCES dbo.TypeDepartment(IdTypeDepartment)
 )
 
+CREATE TABLE TypeEngine(
+IdTypeEngine int NOT NULL IDENTITY PRIMARY KEY,
+NameType varchar(50) NOT NULL
+)
+
 CREATE TABLE Engine(
 IdEngine int NOT NULL IDENTITY PRIMARY KEY,
-TypeEngine varchar(20) NOT NULL,
 Efficiency float NOT NULL,
-NumberOfCylinders int
+NumberOfCylinders int,
+
+IdTypeEngine int NOT NULL FOREIGN KEY REFERENCES dbo.TypeEngine(IdTypeEngine)
 )
 
 CREATE TABLE Locomative(
@@ -111,13 +117,13 @@ IdRoute int NOT NULL FOREIGN KEY REFERENCES dbo.Route(IdRoute),
 
 CREATE TABLE Station(
 IdStation int NOT NULL IDENTITY PRIMARY KEY,
-NameStation varchar(50) NOT NULL,
+NameStation varchar(60) NOT NULL,
 )
 
 CREATE TABLE Station_Route(
 IdRoute int NOT NULL FOREIGN KEY REFERENCES dbo.Route(IdRoute),
 IdStation int NOT NULL FOREIGN KEY REFERENCES dbo.Station(IdStation),
 
-DepartureTime DATETIME NOT NULL,
-ArravalTime DATETIME NOT NULL,
+DepartureTime DATETIME,
+ArravalTime DATETIME,
 )
