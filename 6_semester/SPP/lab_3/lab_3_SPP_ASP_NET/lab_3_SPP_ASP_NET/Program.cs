@@ -26,9 +26,7 @@ app.Run(async (context) =>
     var response = context.Response;
     var request = context.Request;
     var path = request.Path;
-    //string expressionForNumber = "^/api/trains/([0-9]+)$";   // если id представляет число
 
-    // 2e752824-1657-4c7f-844b-6ec2e168e99c
     string expressionForGuid = @"^/api/trains/[0-9]*$";
     if (path == "/api/trains" && request.Method == "GET")
     {
@@ -67,15 +65,15 @@ async Task GetAllTrain(HttpResponse response)
 {
     await response.WriteAsJsonAsync(trains);
 }
-// получение одного пользователя по id
+
 async Task GetTrain(int? id, HttpResponse response)
 {
-    // получаем пользователя по id
+
     Train? train = trains.FirstOrDefault((u) => u.TrainId == id);
-    // если пользователь найден, отправляем его
+
     if (train != null)
         await response.WriteAsJsonAsync(train);
-    // если не найден, отправляем статусный код и сообщение об ошибке
+
     else
     {
         response.StatusCode = 404;
@@ -85,18 +83,18 @@ async Task GetTrain(int? id, HttpResponse response)
 
 async Task DeleteTrain(int? id, HttpResponse response)
 {
-    // получаем пользователя по id
+
     Train? train = trains.FirstOrDefault((t) => t.TrainId == id);
-    // если пользователь найден, удаляем его
+
     if (train != null)
     {
         _db.Trains.Remove(train);
         _db.SaveChanges();
         trains = await _db.Trains.ToListAsync();
-        //trains.Remove(train);
+
         await response.WriteAsJsonAsync(train);
     }
-    // если не найден, отправляем статусный код и сообщение об ошибке
+
     else
     {
         response.StatusCode = 404;
@@ -108,7 +106,7 @@ async Task CreateTrain(HttpResponse response, HttpRequest request)
 {
     try
     {
-        // получаем данные пользователя
+
         var train = await request.ReadFromJsonAsync<Train>();
         if (train != null)
         {

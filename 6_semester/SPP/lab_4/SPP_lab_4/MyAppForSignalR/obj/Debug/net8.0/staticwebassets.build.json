@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "xZWQavt3vxYekC6d+PF5iawMs7a5M0fCasx7458l9vE=",
+  "Source": "MyAppForSignalR",
+  "BasePath": "_content/MyAppForSignalR",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MyAppForSignalR\\wwwroot",
+      "Source": "MyAppForSignalR",
+      "ContentRoot": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\SPP_lab_4\\MyAppForSignalR\\wwwroot\\",
+      "BasePath": "_content/MyAppForSignalR",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\SPP_lab_4\\MyAppForSignalR\\wwwroot\\index.html",
+      "SourceId": "MyAppForSignalR",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\SPP_lab_4\\MyAppForSignalR\\wwwroot\\",
+      "BasePath": "_content/MyAppForSignalR",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}
