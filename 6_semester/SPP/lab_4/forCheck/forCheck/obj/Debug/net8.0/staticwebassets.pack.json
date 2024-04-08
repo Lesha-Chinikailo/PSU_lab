@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\forCheck\\forCheck\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.forCheck.props",
+      "PackagePath": "build\\forCheck.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.forCheck.props",
+      "PackagePath": "buildMultiTargeting\\forCheck.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.forCheck.props",
+      "PackagePath": "buildTransitive\\forCheck.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.forCheck.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

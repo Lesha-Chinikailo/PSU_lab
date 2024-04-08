@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .popup {
+            position: fixed;
+            transform: translate(-50%, -50%);
+            background-color: lightgray;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="chat">
+        <p>hello</p>
+    </div>
+    <script>
+        const socket = new WebSocket("wss://localhost:6969/ws");
+
+        socket.onopen = (event) => {
+            console.log("WebSocket connection established.");
+        };
+        let count = 0;
+        socket.onmessage = (event) => {
+            const chatDiv = document.getElementById("chat");
+            var x = randomInt(1, 1200);
+            var y = randomInt(1, 600);
+
+            chatDiv.innerHTML += `<br>`
+            chatDiv.innerHTML += `<div id="popup${count++}" class="popup" style="
+                  left: ${x}px;
+                  top: ${y}px;">
+                        <p>${event.data}</p><button onclick="closePopup(this.parentNode.id)">Закрыть</button></p>
+
+                    </div>`
+        };
+
+        function openPopup() {
+            var popup = document.createElement('div');
+            popup.className = 'popup';
+            popup.innerHTML = '<p>Рекламный текст или изображение</p><button onclick="closePopup()">Закрыть</button>';
+            document.body.appendChild(popup);
+        }
+
+        function closePopup(id) {
+            var el = document.getElementById(id);
+            el.remove();
+            //var popup = document.querySelector('.popup');
+            //if (popup) {
+            //    popup.remove();
+            //}
+        }
+
+        socket.onclose = (event) => {
+            if (event.wasClean) {
+                console.log(`WebSocket connection closed cleanly, code=${event.code}, reason=${event.reason}`);
+            } else {
+                console.error(`WebSocket connection died`);
+            }
+        };
+
+        function sendMessage() {
+            const messageInput = document.getElementById("messageInput");
+            const message = messageInput.value;
+            socket.send(message);
+            messageInput.value = "";
+        }
+
+        function removeParent(node) {
+            node.remove();
+        }
+
+        function randomInt(min, max) {
+            if (max == null) { max = min; min = 0; }
+            if (min > max) { var tmp = min; min = max; max = tmp; }
+            return Math.floor(min + (max - min + 1) * Math.random());
+        }
+    </script>
+</body>
+</html>

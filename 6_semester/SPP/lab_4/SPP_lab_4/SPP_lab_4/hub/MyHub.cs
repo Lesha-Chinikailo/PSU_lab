@@ -6,7 +6,7 @@ namespace SPP_lab_4.hub
     {
         public async Task Send()
         {
-            await Clients.All.SendAsync("Recieve", "alert(\"hello from hub\")");
+            await Clients.All.SendAsync("Recieve", "(hello from hub)");
         }
     }
 }

@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "rRGYWskUX9/GxyceEWt7cQR514EZj+uIDJKkDOl4z30=",
+  "Source": "forCheck",
+  "BasePath": "_content/forCheck",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "forCheck\\wwwroot",
+      "Source": "forCheck",
+      "ContentRoot": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\forCheck\\forCheck\\wwwroot\\",
+      "BasePath": "_content/forCheck",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\forCheck\\forCheck\\wwwroot\\index.html",
+      "SourceId": "forCheck",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\forCheck\\forCheck\\wwwroot\\",
+      "BasePath": "_content/forCheck",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}

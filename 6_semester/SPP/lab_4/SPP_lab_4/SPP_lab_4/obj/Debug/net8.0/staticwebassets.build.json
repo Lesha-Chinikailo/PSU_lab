@@ -1,11 +1,58 @@
 {
   "Version": 1,
-  "Hash": "q0D4uo8tdTYh8r6FBsxb2CvcX6X7+zIaEseIQ4YDEgA=",
+  "Hash": "H1jGmVVtcECJK49kCVy59cc2fB39kzzD5s3jKqM/Y4Y=",
   "Source": "SPP_lab_4",
   "BasePath": "_content/SPP_lab_4",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "SPP_lab_4\\wwwroot",
+      "Source": "SPP_lab_4",
+      "ContentRoot": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\SPP_lab_4\\SPP_lab_4\\wwwroot\\",
+      "BasePath": "_content/SPP_lab_4",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\SPP_lab_4\\SPP_lab_4\\wwwroot\\index.html",
+      "SourceId": "SPP_lab_4",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\SPP_lab_4\\SPP_lab_4\\wwwroot\\",
+      "BasePath": "_content/SPP_lab_4",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\SPP_lab_4\\SPP_lab_4\\wwwroot\\temp.html",
+      "SourceId": "SPP_lab_4",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\PSU_lab\\6_semester\\SPP\\lab_4\\SPP_lab_4\\SPP_lab_4\\wwwroot\\",
+      "BasePath": "_content/SPP_lab_4",
+      "RelativePath": "temp.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\temp.html"
+    }
+  ]
 }
