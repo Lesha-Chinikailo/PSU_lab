@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G1ofrBWppX5aGPbqbidUm4tINzjkyFXGqW9rL/qayv69hy9PX9AjrRx0haWdRbwVpb6bXw+LurXwhk3Op/HYqA==",
+  "dgSpecHash": "xF3eXd655YOWrrYcjtapA4sCMojNuHXa5fA1MER/AO4eai9sApi0D7STosl9oLihk/0Ri7cQIxd2CksWDs5UKQ==",
   "success": true,
-  "projectFilePath": "E:\\PSU_lab\\6_semester\\RV\\lab_2\\pract_4_gRPCServer\\pract_4_gRPCServer\\pract_4_gRPCServer.csproj",
+  "projectFilePath": "E:\\PSU_lab\\6_semester\\SPP\\pract_4\\pract_4_gRPCServer\\pract_4_gRPCServer\\pract_4_gRPCServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lesha\\.nuget\\packages\\google.protobuf\\3.24.0\\google.protobuf.3.24.0.nupkg.sha512",
     "C:\\Users\\Lesha\\.nuget\\packages\\grpc.aspnetcore\\2.62.0\\grpc.aspnetcore.2.62.0.nupkg.sha512",

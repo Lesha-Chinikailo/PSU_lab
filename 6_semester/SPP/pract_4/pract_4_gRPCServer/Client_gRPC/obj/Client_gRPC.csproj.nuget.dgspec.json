@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\PSU_lab\\6_semester\\RV\\lab_2\\pract_4_gRPCServer\\Client_gRPC\\Client_gRPC.csproj": {}
+    "E:\\PSU_lab\\6_semester\\SPP\\pract_4\\pract_4_gRPCServer\\Client_gRPC\\Client_gRPC.csproj": {}
   },
   "projects": {
-    "E:\\PSU_lab\\6_semester\\RV\\lab_2\\pract_4_gRPCServer\\Client_gRPC\\Client_gRPC.csproj": {
+    "E:\\PSU_lab\\6_semester\\SPP\\pract_4\\pract_4_gRPCServer\\Client_gRPC\\Client_gRPC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PSU_lab\\6_semester\\RV\\lab_2\\pract_4_gRPCServer\\Client_gRPC\\Client_gRPC.csproj",
+        "projectUniqueName": "E:\\PSU_lab\\6_semester\\SPP\\pract_4\\pract_4_gRPCServer\\Client_gRPC\\Client_gRPC.csproj",
         "projectName": "Client_gRPC",
-        "projectPath": "E:\\PSU_lab\\6_semester\\RV\\lab_2\\pract_4_gRPCServer\\Client_gRPC\\Client_gRPC.csproj",
+        "projectPath": "E:\\PSU_lab\\6_semester\\SPP\\pract_4\\pract_4_gRPCServer\\Client_gRPC\\Client_gRPC.csproj",
         "packagesPath": "C:\\Users\\Lesha\\.nuget\\packages\\",
-        "outputPath": "E:\\PSU_lab\\6_semester\\RV\\lab_2\\pract_4_gRPCServer\\Client_gRPC\\obj\\",
+        "outputPath": "E:\\PSU_lab\\6_semester\\SPP\\pract_4\\pract_4_gRPCServer\\Client_gRPC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lesha\\AppData\\Roaming\\NuGet\\NuGet.Config",
