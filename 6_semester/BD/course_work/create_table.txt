@@ -25,6 +25,7 @@ NameType varchar(50) NOT NULL
 
 CREATE TABLE Engine(
 IdEngine int NOT NULL IDENTITY PRIMARY KEY,
+Name varchar(20) NOT NULL,
 Efficiency float NOT NULL,
 NumberOfCylinders int,
 
@@ -33,8 +34,10 @@ IdTypeEngine int NOT NULL FOREIGN KEY REFERENCES dbo.TypeEngine(IdTypeEngine)
 
 CREATE TABLE Locomative(
 IdLocomative int NOT NULL IDENTITY PRIMARY KEY,
+Name varchar(20) NOT NULL,
 Weight float NOT NULL,
 TractionForce float NOT NULL,
+InspectionDate Date NOT NULL,
 
 IdEngine int NOT NULL FOREIGN KEY REFERENCES dbo.Engine(IdEngine)
 )
@@ -64,6 +67,7 @@ NameType varchar(10)
 
 CREATE TABLE Train(
 IdTrain int NOT NULL IDENTITY PRIMARY KEY,
+Name varchar(20) NOT NULL,
 NumberOfTrainCarriage int NOT NULL,
 
 IdLocomative int NOT NULL FOREIGN KEY REFERENCES dbo.Locomative(IdLocomative),
@@ -74,12 +78,14 @@ CREATE TABLE Driver(
 IdDriver int NOT NULL IDENTITY PRIMARY KEY,
 DateOfMedicalExamination Date NOT NULL,
 
-IdWorker int NOT NULL FOREIGN KEY REFERENCES dbo.Worker(IdWorker)
+IdWorker int FOREIGN KEY REFERENCES dbo.Worker(IdWorker)
 )
 
 CREATE TABLE Train_Driver(
+IdTrainDriver int NOT NULL IDENTITY PRIMARY KEY,
+
 IdDriver int NOT NULL FOREIGN KEY REFERENCES dbo.Driver(IdDriver),
-IdTrain int nOT NULL FOREIGN KEY REFERENCES dbo.Train(IdTrain),
+IdTrain int NOT NULL FOREIGN KEY REFERENCES dbo.Train(IdTrain),
 )
 
 CREATE TABLE TypeTrainCarriage(
@@ -122,6 +128,8 @@ NameStation varchar(60) NOT NULL,
 )
 
 CREATE TABLE Station_Route(
+IdStationRoute int NOT NULL IDENTITY PRIMARY KEY,
+
 IdRoute int NOT NULL FOREIGN KEY REFERENCES dbo.Route(IdRoute),
 IdStation int NOT NULL FOREIGN KEY REFERENCES dbo.Station(IdStation),
 

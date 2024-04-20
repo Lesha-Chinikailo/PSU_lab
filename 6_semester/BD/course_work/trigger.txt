@@ -1,0 +1,20 @@
+CREATE TRIGGER AddDriverAfterAddWorker
+ON Worker
+AFTER INSERT
+AS
+BEGIN
+	IF (SELECT IdDepartment FROM Department WHERE Name = 'Rolling stock driver') = (SELECT IdDepartment FROM Department
+																					WHERE IdDepartment = (
+																					SELECT IdDepartment FROM Brigade
+																					WHERE IdBrigade = (SELECT IdBrigade FROM inserted)))
+	BEGIN
+		INSERT INTO DRIVER VALUES
+		('2022-10-25', (SELECT IdWorker FROM inserted))
+	END
+END
+
+INSERT INTO Worker VaLUES
+('Lesha1', 'Chinikaylo1', 'le123@mail.ru', 1, 3, 1)
+
+SELECT * FROM Driver
+DISABLE TRIGGER AddDriverAfterAddWorker ON Worker
