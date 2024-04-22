@@ -101,18 +101,19 @@ IdTrain int NOT NULL FOREIGN KEY REFERENCES dbo.Train(IdTrain),
 IdTypeTrainCarriage int NOT NULL FOREIGN KEY REFERENCES dbo.TypeTrainCarriage(IdTypeTrainCarriage),
 )
 
-CREATE TABLE Ticket(
-IdTicket int NOT NULL IDENTITY PRIMARY KEY,
-PlaceofNumber int NOT NULL,
-IsTaken bit NOT NULL,
-IdTrainCarriage int NOT NULL FOREIGN KEY REFERENCES dbo.TrainCarriage(IdTrainCarriage)
-)
-
 CREATE TABLE Route(
 IdRoute int NOT NULL IDENTITY PRIMARY KEY,
 NameRoute varchar(20) NOT NULL,
 DepartureTime DATETIME NOT NULL,
 ArravalTime DATETIME NOT NULL,
+)
+
+CREATE TABLE Ticket(
+IdTicket int NOT NULL IDENTITY PRIMARY KEY,
+PlaceofNumber int NOT NULL,
+IsTaken bit NOT NULL,
+TimeofPurchase datetime,
+IdRoute int NOT NULL FOREIGN KEY REFERENCES dbo.Route(IdRoute)
 )
 
 CREATE TABLE Schedule(
