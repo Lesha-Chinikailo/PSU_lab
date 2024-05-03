@@ -7,9 +7,9 @@
 
 using namespace std;
 
-int amountOfElements = 30;
-int numberOfElementAttributes = 2;
-int numberOfClusters = 3;
+int amountOfElements = 120000;
+int numberOfElementAttributes = 5;
+int numberOfClusters = 6;
 
 double calculateDistance(vector<double>& point1, vector<double>& point2) { // подсчет растояние между точками
     double distance = 0.0;
@@ -19,6 +19,7 @@ double calculateDistance(vector<double>& point1, vector<double>& point2) { // п
     return sqrt(distance);
 }
 // присваиваем точки к кластеру
+
 void assignToClusters(vector<vector<double>>& points, vector<vector<double>>& centroids, vector<int>& clusterAssignments) {
     for (int i = 0; i < amountOfElements; i++) {
         double minDistance = numeric_limits<double>::max(); // берем значения что было с чем сравнивать
@@ -64,27 +65,29 @@ void kMeans(vector<vector<double>>& points, vector<vector<double>>& centroids, v
         updateCentroids(points, centroids, clusterAssignments);
         double e = clock();
         iterationTimes.push_back((e - s) / CLOCKS_PER_SEC);
-        cout << "iteration " << count << endl;
-        int countPoints = 0;
-        for (int i = 0; i < numberOfClusters; i++) {
-            cout << "cluster " << i << ":" << endl;
-            countPoints = 0;
-            for (int j = 0; j < amountOfElements; j++) {
-                if (clusterAssignments[j] == i) {
-                    countPoints++;
-                    cout << "point " << j << ": ";
-                    cout << calculateDistance(points[j], centroids[i]) << "\t";
-                    for (int k = 0; k < numberOfClusters; k++) {
-                        if (k != i) {
-                            cout << k << ": " << calculateDistance(points[j], centroids[k]) << "\t";
-                        }
-                    }
-                    cout << endl;
-                }
-            }
-            cout << "count points in cluster: " << countPoints << endl;
-        }
-        cout << "\n\n\n";
+
+        //cout << "iteration " << count << endl;
+        //int countPoints = 0;
+        //for (int i = 0; i < numberOfClusters; i++) {
+        //    cout << "cluster " << i << ":" << endl;
+        //    countPoints = 0;
+        //    for (int j = 0; j < amountOfElements; j++) {
+        //        if (clusterAssignments[j] == i) {
+        //            countPoints++;
+        //            cout << "point " << j << ": ";
+        //            cout << calculateDistance(points[j], centroids[i]) << "\t";
+        //            for (int k = 0; k < numberOfClusters; k++) {
+        //                if (k != i) {
+        //                    cout << k << ": " << calculateDistance(points[j], centroids[k]) << "\t";
+        //                }
+        //            }
+        //            cout << endl;
+        //        }
+        //    }
+        //    cout << "count points in cluster: " << countPoints << endl;
+        //}
+        //cout << "\n\n\n";
+
         if (clusterAssignments == OldclusterAssignments) { // если ничего не поменялось
             cout << "True" << count << endl;
             ofstream outFile("../../CountIteration.txt");//открываем файл
@@ -107,7 +110,7 @@ int main() {
 
     vector<vector<double>> points(amountOfElements, vector<double>(numberOfElementAttributes));
     vector<vector<double>> centroids(numberOfClusters, vector<double>(numberOfElementAttributes));
-
+    srand(0);
     vector<double> iterationTimes;
     for (int i = 0; i < amountOfElements; i++) { // ставим рандомно точки
         for (int j = 0; j < numberOfElementAttributes; j++) {

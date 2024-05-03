@@ -10,7 +10,7 @@ for c in s:
     charNumber.append(float(c))
 print(charNumber)
 countIteration = int(open("../CountIteration.txt").read())
-numbers = [f"{i}" for i in range(1, countIteration + 1)]
+numbers = [f"{i}" for i in range(0, countIteration + 1)]
 
 #numbers = list(range(1, 102))
 #numbersStr = []
