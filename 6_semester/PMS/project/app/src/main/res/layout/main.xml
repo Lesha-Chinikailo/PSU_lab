@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+    android:id="@+id/button1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/smile_button"
+    android:onClick="onButtonClicked"
+    android:padding="10dp"
+        android:maxWidth="10dp"
+        android:maxHeight="10dp"
+    android:text="Ok"/>
+    <CheckBox
+    android:id="@+id/checkbox1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="onCheckboxClicked"
+    android:text="Выбери меня" />
+    <ToggleButton android:id="@+id/togglebutton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textOn="Звонок включен"
+    android:textOff="Звонок выключен"
+    android:onClick="onToggleClicked"/>
+
+    <RadioGroup
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <RadioButton
+    android:id="@+id/radio_dog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="onRadioButtonClicked"
+    android:text="Собака" />
+    <RadioButton
+    android:id="@+id/radio_cat"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="onRadioButtonClicked"
+    android:text="Кошка" />
+    <RadioButton
+    android:id="@+id/radio_rabbit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="onRadioButtonClicked"
+    android:text="Кролик" />
+    </RadioGroup>
+
+    <EditText
+    android:id="@+id/user_name"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:hint="Введите имя"/>
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:longClickable="true"/>
+</LinearLayout>
