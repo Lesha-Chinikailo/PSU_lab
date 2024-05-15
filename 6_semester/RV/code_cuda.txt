@@ -1,0 +1,196 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <cuda_runtime.h>
+
+// Гиперпараметры
+const int numElements = 30;
+const int numAttributes = 2;
+const int numClusters = 3;
+const int maxIterations = 100;
+
+// Структура для хранения точек
+struct Point {
+    float attributes[numAttributes];
+};
+
+// Генерация случайных точек
+void generateRandomPoints(std::vector<Point>& points) {
+    for (int i = 0; i < numElements; ++i) {
+        for (int j = 0; j < numAttributes; ++j) {
+            points[i].attributes[j] = static_cast<float>(rand()) / RAND_MAX;
+        }
+    }
+}
+
+void generateRandomCentroids(std::vector<Point>& centroids) {
+    for (int i = 0; i < numClusters; ++i) {
+        for (int j = 0; j < numAttributes; ++j) {
+            centroids[i].attributes[j] = static_cast<float>(rand()) / RAND_MAX;
+        }
+    }
+}
+
+// CUDA ядро для обновления центроидов
+__global__ void updateCentroidsKernel(Point* points, Point* centroids, int* clusterAssignments) {
+    int clusterId = threadIdx.x;
+    int numPointsInCluster = 0;
+    Point newCentroid = { 0 };
+
+    for (int i = 0; i < numElements; ++i) {
+        if (clusterAssignments[i] == clusterId) {
+            for (int j = 0; j < numAttributes; ++j) {
+                newCentroid.attributes[j] += points[i].attributes[j];
+            }
+            numPointsInCluster++;
+        }
+    }
+
+    for (int j = 0; j < numAttributes; ++j) {
+        centroids[clusterId].attributes[j] = newCentroid.attributes[j] / numPointsInCluster;
+    }
+}
+
+// CUDA ядро для присвоения точек кластерам
+__global__ void assignToClustersKernel(Point* points, Point* centroids, int* clusterAssignments) {
+    int pointId = blockIdx.x * blockDim.x + threadIdx.x;
+    float minDistance = FLT_MAX;
+    int closestCluster = -1;
+
+    for (int clusterId = 0; clusterId < numClusters; ++clusterId) {
+        float distance = 0;
+        for (int j = 0; j < numAttributes; ++j) {
+            float diff = points[pointId].attributes[j] - centroids[clusterId].attributes[j];
+            distance += diff * diff;
+        }
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestCluster = clusterId;
+        }
+    }
+
+    clusterAssignments[pointId] = closestCluster;
+}
+
+// CUDA ядро для вычисления расстояния между точками
+__global__ void calculateDistanceKernel(Point* points, Point* centroids, float* distances) {
+    int pointId = blockIdx.x * blockDim.x + threadIdx.x;
+    int clusterId = threadIdx.y;
+
+    float distance = 0;
+    for (int j = 0; j < numAttributes; ++j) {
+        float diff = points[pointId].attributes[j] - centroids[clusterId].attributes[j];
+        distance += diff * diff;
+    }
+
+    distances[pointId * numClusters + clusterId] = sqrt(distance);
+}
+
+__global__ void calculateDistance(Point* point1, Point* point2, double& distance) {
+    // Подсчет расстояния между точками на GPU (CUDA)
+    double result = 0.0;
+    for (int i = 0; i < numAttributes; i++) {
+        result += pow((point1->attributes[i] - point1->attributes[i]), 2);
+    }
+    distance = sqrt(result);
+}
+
+int main() {
+    // Инициализация CUDA
+    cudaSetDevice(0);
+
+    // Генерация случайных точек
+    std::vector<Point> points(numElements);
+    generateRandomPoints(points);
+
+    // Выделение памяти на устройстве
+    Point* d_points;
+    Point* d_centroids;
+    int* d_clusterAssignments;
+    float* d_distances;
+    cudaMalloc(&d_points, numElements * sizeof(Point));
+    cudaMalloc(&d_centroids, numClusters * sizeof(Point));
+    cudaMalloc(&d_clusterAssignments, numElements * sizeof(int));
+    cudaMalloc(&d_distances, numElements * numClusters * sizeof(float));
+
+    // Копирование данных на устройство
+    cudaMemcpy(d_points, points.data(), numElements * sizeof(Point), cudaMemcpyHostToDevice);
+
+    // Инициализация центроидов (можно случайно или выбрать из точек)
+    std::vector<Point> centroids(numClusters);
+    generateRandomCentroids(centroids);
+    cudaMemcpy(d_centroids, centroids.data(), numClusters * sizeof(Point), cudaMemcpyHostToDevice);
+
+    // Запуск итераций алгоритма K-средних
+    for (int iter = 0; iter < maxIterations; ++iter) {
+        // Присвоение точек кластерам
+        assignToClustersKernel << <numElements, 1 >> > (d_points, d_centroids, d_clusterAssignments);
+
+        // Обновление центроидов
+        updateCentroidsKernel << <1, numClusters >> > (d_points, d_centroids, d_clusterAssignments);
+    }
+
+    // Копирование результатов обратно на хост
+    cudaMemcpy(centroids.data(), d_centroids, numClusters * sizeof(Point), cudaMemcpyDeviceToHost);
+
+    // Освобождение памяти
+    cudaFree(d_points);
+    cudaFree(d_centroids);
+    cudaFree(d_clusterAssignments);
+    cudaFree(d_distances);
+
+    // Вывод результатов
+    std::cout << "Final centroids:" << std::endl;
+    for (int i = 0; i < numClusters; ++i) {
+        std::cout << "Cluster " << i << ": ";
+        for (int j = 0; j < numAttributes; ++j) {
+            std::cout << centroids[i].attributes[j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    std::cout << "Points" << std::endl;
+    for (int i = 0; i < numElements; i++) {
+        std::cout << "Point " << i << ": ";
+        for (int j = 0; j < numAttributes; j++) {
+            std::cout << points[i].attributes[j] << " ";
+        }
+        std::cout << std::endl;
+        for (int k = 0; k < numClusters; k++) {
+            Point hostPoint = points[i], hostcluster = centroids[k];
+
+            Point* devicePoint1;
+            Point* devicePoint2;
+            cudaMalloc(&devicePoint1, sizeof(Point));
+            cudaMalloc(&devicePoint2, sizeof(Point));
+
+            cudaMemcpy(devicePoint1, &hostPoint, sizeof(Point), cudaMemcpyHostToDevice);
+            cudaMemcpy(devicePoint2, &hostcluster, sizeof(Point), cudaMemcpyHostToDevice);
+
+            double distance;
+            calculateDistance<<<1, 1>>>(devicePoint1, devicePoint2, distance);
+            std::cout << "for " << k << " cluster: " << distance;
+            std::cout << std::endl;
+            for (int h = 0; h < numAttributes; h++) {
+                std::cout << hostPoint.attributes[h] << " ";
+            }
+            std::cout << std::endl;
+            for (int h = 0; h < numAttributes; h++) {
+                std::cout << hostcluster.attributes[h] << " ";
+            }
+            std::cout << std::endl;
+            cudaFree(devicePoint1);
+            cudaFree(devicePoint2);
+            //double distance = 0;
+            //calculateDistance << <1, 1 >> > (points[i], centroids[k], distance);
+            //std::cout << "for " << i << " cluster: " << distance;
+            //std::cout << std::endl;
+        }
+        std::cout << std::endl;
+    }
+
+
+
+    return 0;
+}
+

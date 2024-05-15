@@ -53,10 +53,10 @@ point 11998: 26.7951    0: 78.5235      1: 55.9321
 
 class Const {
 public:
-    static const int amountOfElements = 120000; //1200
-    static const int numberOfElementAttributes = 5;//3
-    static const int numberOfClusters = 6;//4
-    static const int numberOfElementsInOneIteration = 6000;
+    static const int amountOfElements = 1200; //1200
+    static const int numberOfElementAttributes = 3;//3
+    static const int numberOfClusters = 4;//4
+    static const int numberOfElementsInOneThread = 100;
 };
 
 double calculateDistance(vector<double>& point1, vector<double>& point2) { // подсчет растояние между точками
@@ -67,8 +67,8 @@ double calculateDistance(vector<double>& point1, vector<double>& point2) { // п
     return sqrt(distance);
 }
 void assignToClusterParaller(int k, vector<vector<double>>& points, vector<vector<double>>& centroids, vector<int>& clusterAssignments) {
-    int start = k == 1 ? 0 : (k - 1) * Const::numberOfElementsInOneIteration;
-    int end = k * Const::numberOfElementsInOneIteration;
+    int start = k == 1 ? 0 : (k - 1) * Const::numberOfElementsInOneThread;
+    int end = k * Const::numberOfElementsInOneThread;
     for (int i = start; i < end; i++) {
         double minDistance = numeric_limits<double>::max(); // берем значения что было с чем сравнивать
         int closestCentroid = -1;
@@ -86,7 +86,7 @@ void assignToClusterParaller(int k, vector<vector<double>>& points, vector<vecto
 // присваиваем точки к кластеру
 void assignToClusters(vector<vector<double>>& points, vector<vector<double>>& centroids, vector<int>& clusterAssignments) {
     vector<thread> threads;
-    int countIteration = Const::amountOfElements / Const::numberOfElementsInOneIteration;
+    int countIteration = Const::amountOfElements / Const::numberOfElementsInOneThread;
     for (int k = 1; k <= countIteration; k++) {
         threads.emplace_back(assignToClusterParaller, k, ref(points),
             ref(centroids), ref(clusterAssignments));
@@ -173,7 +173,7 @@ void kMeans(vector<vector<double>>& points, vector<vector<double>>& centroids, v
         //thread threadPrint(PrintIteration, ref(count), ref(points), ref(centroids), ref(clusterAssignments));
         //threadPrint.join();
         
-        //PrintIteration(count, points, centroids, clusterAssignments);
+        PrintIteration(count, points, centroids, clusterAssignments);
         
         //thread_assignToClusters.join();
         //thread_updateCentroids.join();

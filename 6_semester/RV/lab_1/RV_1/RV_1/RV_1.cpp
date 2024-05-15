@@ -7,9 +7,9 @@
 
 using namespace std;
 
-int amountOfElements = 120000;
-int numberOfElementAttributes = 5;
-int numberOfClusters = 6;
+int amountOfElements = 30;
+int numberOfElementAttributes = 2;
+int numberOfClusters = 3;
 
 double calculateDistance(vector<double>& point1, vector<double>& point2) { // подсчет растояние между точками
     double distance = 0.0;
@@ -66,27 +66,27 @@ void kMeans(vector<vector<double>>& points, vector<vector<double>>& centroids, v
         double e = clock();
         iterationTimes.push_back((e - s) / CLOCKS_PER_SEC);
 
-        //cout << "iteration " << count << endl;
-        //int countPoints = 0;
-        //for (int i = 0; i < numberOfClusters; i++) {
-        //    cout << "cluster " << i << ":" << endl;
-        //    countPoints = 0;
-        //    for (int j = 0; j < amountOfElements; j++) {
-        //        if (clusterAssignments[j] == i) {
-        //            countPoints++;
-        //            cout << "point " << j << ": ";
-        //            cout << calculateDistance(points[j], centroids[i]) << "\t";
-        //            for (int k = 0; k < numberOfClusters; k++) {
-        //                if (k != i) {
-        //                    cout << k << ": " << calculateDistance(points[j], centroids[k]) << "\t";
-        //                }
-        //            }
-        //            cout << endl;
-        //        }
-        //    }
-        //    cout << "count points in cluster: " << countPoints << endl;
-        //}
-        //cout << "\n\n\n";
+        cout << "iteration " << count << endl;
+        int countPoints = 0;
+        for (int i = 0; i < numberOfClusters; i++) {
+            cout << "cluster " << i << ":" << endl;
+            countPoints = 0;
+            for (int j = 0; j < amountOfElements; j++) {
+                if (clusterAssignments[j] == i) {
+                    countPoints++;
+                    cout << "point " << j << ": ";
+                    cout << calculateDistance(points[j], centroids[i]) << "\t";
+                    for (int k = 0; k < numberOfClusters; k++) {
+                        if (k != i) {
+                            cout << k << ": " << calculateDistance(points[j], centroids[k]) << "\t";
+                        }
+                    }
+                    cout << endl;
+                }
+            }
+            cout << "count points in cluster: " << countPoints << endl;
+        }
+        cout << "\n\n\n";
 
         if (clusterAssignments == OldclusterAssignments) { // если ничего не поменялось
             cout << "True" << count << endl;
