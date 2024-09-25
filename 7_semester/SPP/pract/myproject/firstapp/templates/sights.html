@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sights</title>
+
+</head>
+<body>
+    <h1>sights</h1>
+
+    <a href="create">Add sight</a>
+
+    {% if sights %}
+    <h2>List of sights</h2>
+    <table>
+      {% for sight in sights %}
+      <tr>
+        <td>{{sight.name}}</td>
+        <td>{{sight.location}}</td>
+        <td>{{sight.type}}</td>
+        <td>{{sight.description}}</td>
+        <td>
+          <a href="edit/{{sight.id}}">Change</a> |
+          <a href="delete/{{sight.id}}">Del</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>No sights available.</p>
+    {% endif %}
+</body>
+</html>
