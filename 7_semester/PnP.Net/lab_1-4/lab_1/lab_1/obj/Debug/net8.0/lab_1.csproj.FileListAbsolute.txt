@@ -1,0 +1,15 @@
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\bin\Debug\net8.0\lab_1.exe
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\bin\Debug\net8.0\lab_1.deps.json
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\bin\Debug\net8.0\lab_1.runtimeconfig.json
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\bin\Debug\net8.0\lab_1.dll
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\bin\Debug\net8.0\lab_1.pdb
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\lab_1.GeneratedMSBuildEditorConfig.editorconfig
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\lab_1.AssemblyInfoInputs.cache
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\lab_1.AssemblyInfo.cs
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\lab_1.csproj.CoreCompileInputs.cache
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\lab_1.sourcelink.json
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\lab_1.dll
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\refint\lab_1.dll
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\lab_1.pdb
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\lab_1.genruntimeconfig.cache
+E:\PSU_lab\7_semester\PnP.Net\lab_1-4\lab_1\lab_1\obj\Debug\net8.0\ref\lab_1.dll
