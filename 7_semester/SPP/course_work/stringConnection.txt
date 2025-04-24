@@ -1,0 +1,4 @@
+Scaffold-DbContext "Host=localhost;Port=5432;Database=BotAdministrator;Username=postgres;Password=postgres" -OutputDir Models
+
+Provider:
+Npgsql.EntityFrameworkCore.PostgreSQL
